@@ -23,6 +23,16 @@ $shell=pwsh --version
 $ramUsage = [math]::Round(((Get-CimInstance -ClassName Win32_OperatingSystem).TotalVisibleMemorySize - (Get-CimInstance -ClassName Win32_OperatingSystem).FreePhysicalMemory)/1MB , 2)
 $ramTotal = [math]::Round(((Get-CimInstance -ClassName Win32_OperatingSystem).TotalVisibleMemorySize)/1MB , 2)
 $ramPercentage = [math]::Round(($ramUsage / $ramTotal) * 100)
+#################################
+#battery
+$battery = Get-CimInstance -ClassName Win32_Battery
+$status = $battery.BatteryStatus
+$percentage = $battery.EstimatedChargeRemaining
+
+$numblock=[math]::Round($percentage/10)
+
+$spce=10-$numblock
+#################################
 function getres {
     param ()
 
@@ -93,9 +103,8 @@ if (-not $terminal) {
     
 $OutputEncoding = [System.Text.Encoding]::UTF8
 Write-Host "                                 $username@$hostname" -ForegroundColor Green
+Write-Host "                                 - - - - - - - - - - " -ForegroundColor Green
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan   
-Write-Host "        - - - - - - - - - - "
-Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      OS: " -NoNewline -ForegroundColor Yellow
 Write-Host $osName
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
@@ -110,18 +119,18 @@ Write-Output "$cpuName ($cpuCount)@$cpuSpeed MHz"
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      GPU: " -NoNewline -ForegroundColor Yellow
 Write-Host $gpu
-Write-Host "░░░░░░░░░░░░░░░░░░░░░░░░░░" -NoNewline  -ForegroundColor cyan
+Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host -NoNewline "      Uptime: " -ForegroundColor Yellow
 Write-Host $uptimeFormatted "hrs"
-Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
+Write-Host "░░░░░░░░░░░░░░░░░░░░░░░░░░" -NoNewline  -ForegroundColor cyan
 Write-Host -NoNewline "      Shell: " -ForegroundColor Yellow
 Write-Host $shell
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
-Write-Host -NoNewline "      Resolution: " -ForegroundColor Yellow
-Write-Host $res
-Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Terminal: " -NoNewline -ForegroundColor Yellow
 Write-Host $terminal
+Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
+Write-Host -NoNewline "      Resolution: " -ForegroundColor Yellow
+Write-Host $res
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Disk free: " -NoNewline -ForegroundColor Yellow
 Write-Host "$freeSpace GB/$totalSpace GB"
@@ -131,3 +140,13 @@ Write-host $ramUsage "GB/"$ramTotal "GB" "("$ramPercentage"%)"
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Type: " -NoNewline -ForegroundColor Yellow
 Write-Host $systemType
+Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
+Write-Host "      Battery: " -NoNewline -ForegroundColor Yellow
+Write-Host "$percentage" -NoNewline 
+Write-Host "%  " -NoNewline 
+if ($status -eq 2 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
+else{if ($numblock -ge 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
+if ($numblock -ge 3 -and $numblock -lt 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor yellow}
+if ($numblock -lt 3 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor red}}
+Write-Host ("░" * $spce) -NoNewline
+if($status -eq 2){Write-host "⚡" -NoNewline} 

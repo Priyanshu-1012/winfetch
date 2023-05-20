@@ -149,4 +149,4 @@ else{if ($numblock -ge 7 ){Write-Host ("█" * $numblock) -NoNewline -Foreground
 if ($numblock -ge 3 -and $numblock -lt 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor yellow}
 if ($numblock -lt 3 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor red}}
 Write-Host ("░" * $spce) -NoNewline
-if($status -eq 2){Write-host "⚡" -NoNewline}
+if($status -eq 2){Write-host "⚡"}

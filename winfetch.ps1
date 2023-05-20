@@ -136,7 +136,9 @@ Write-Host "      Disk free: " -NoNewline -ForegroundColor Yellow
 Write-Host "$freeSpace GB/$totalSpace GB"
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Memory: " -NoNewline -ForegroundColor Yellow
-Write-host $ramUsage "GB/"$ramTotal "GB" "("$ramPercentage"%)"
+Write-host $ramUsage "GB/"$ramTotal "GB" -NoNewline
+if($ramPercentage -ge 91){Write-host "($ramPercentage%)" -ForegroundColor red}
+else{ Write-host "($ramPercentage%)"}
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Type: " -NoNewline -ForegroundColor Yellow
 Write-Host $systemType

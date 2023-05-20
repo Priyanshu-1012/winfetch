@@ -2,7 +2,7 @@
 neofetch for windows(limited func. for now)
 
 
-###Description: 
+### Description: 
 Winfetch is a tool written in powershell that displays your system info is a visual appealing way, it doesn't have any purpose...just for aesthetics.
  
 <img width="690" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/9e0f691f-ca80-43f8-83c2-6a4ba6412303">

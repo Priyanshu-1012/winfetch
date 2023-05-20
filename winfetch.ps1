@@ -3,7 +3,7 @@ $os = Get-CimInstance -Class Win32_OperatingSystem -Property Caption, Version, L
 $system = Get-CimInstance -Class Win32_ComputerSystem -Property Model, SystemType, TotalPhysicalMemory
 $cpu = Get-CimInstance Win32_Processor -Property Name, NumberOfCores, MaxClockSpeed
 $gpu = Get-CimInstance -Namespace "root/CIMv2" -Class Win32_VideoController -Property Name
-
+$colors = @("Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White")
 $osName = ($os.Caption -split 'Single')[0].Trim()
 $osVersion = $os.Version
 $uptime = (Get-Date) - $os.LastBootUpTime
@@ -136,7 +136,7 @@ Write-Host "      Disk free: " -NoNewline -ForegroundColor Yellow
 Write-Host "$freeSpace GB/$totalSpace GB"
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
 Write-Host "      Memory: " -NoNewline -ForegroundColor Yellow
-Write-host $ramUsage "GB/"$ramTotal "GB" -NoNewline
+Write-host $ramUsage "GB/"$ramTotal "GB" -NoNewline 
 if($ramPercentage -ge 91){Write-host "($ramPercentage%)" -ForegroundColor red}
 else{ Write-host "($ramPercentage%)"}
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan
@@ -155,3 +155,9 @@ if($status -eq 2){Write-host "⚡" -NoNewline}
 
 
 Write-Host "`n                               └───────────────────────────────┘" -ForegroundColor Green
+
+Write-HOst "                                         " -NoNewline
+foreach ($color in $colors) {
+    Write-Host " " -ForegroundColor $color -NoNewline 
+}
+Write-Host

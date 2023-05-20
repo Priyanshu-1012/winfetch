@@ -103,7 +103,7 @@ if (-not $terminal) {
     
 $OutputEncoding = [System.Text.Encoding]::UTF8
 Write-Host "                                 $username@$hostname" -ForegroundColor Green
-Write-Host "                                 - - - - - - - - - - " -ForegroundColor Green
+Write-Host "                               ┌───────────────────────────────┐ " -ForegroundColor Green
 Write-Host "████████████░░████████████" -NoNewline  -ForegroundColor cyan   
 Write-Host "      OS: " -NoNewline -ForegroundColor Yellow
 Write-Host $osName
@@ -148,5 +148,8 @@ if ($status -eq 2 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor g
 else{if ($numblock -ge 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
 if ($numblock -ge 3 -and $numblock -lt 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor yellow}
 if ($numblock -lt 3 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor red}}
-Write-Host ("░" * $spce) -NoNewline
-if($status -eq 2){Write-host "⚡"}
+Write-Host ("░" * $spce)-NoNewline
+if($status -eq 2){Write-host "⚡" -NoNewline} 
+
+
+Write-Host "`n                               └───────────────────────────────┘" -ForegroundColor Green

@@ -147,9 +147,10 @@ Write-Host "      Battery: " -NoNewline -ForegroundColor Yellow
 Write-Host "$percentage" -NoNewline 
 Write-Host "%  " -NoNewline 
 if ($status -eq 2 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
-else{if ($numblock -ge 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
-if ($numblock -ge 3 -and $numblock -lt 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor yellow}
-if ($numblock -lt 3 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor red}}
+ else{if ($numblock -ge 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor green}
+      if ($numblock -ge 3 -and $numblock -lt 7 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor yellow}
+      if ($numblock -lt 3 ){Write-Host ("█" * $numblock) -NoNewline -ForegroundColor red}
+      }
 Write-Host ("░" * $spce)-NoNewline
 if($status -eq 2){Write-host "⚡" -NoNewline} 
 
@@ -160,4 +161,4 @@ Write-HOst "                                         " -NoNewline
 foreach ($color in $colors) {
     Write-Host " " -ForegroundColor $color -NoNewline 
 }
-Write-Host
+

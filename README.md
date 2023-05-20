@@ -1,23 +1,25 @@
 # winfetch
 neofetch for windows(limited func. for now)
 
-<img width="778" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/951d9813-b3b0-4dc5-a924-bd4b36908c0f">
+<img width="792" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/45f1e55c-24b3-433f-aa6f-27b5cf79dde0">
 
 
 
 
-<img width="493" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/fd0f03a7-c753-4870-a9df-f5521dba1910">
+
+<img width="684" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/4f0c762a-842b-4b59-8d9d-84bec41853ad">
 
 
 Either paste the code to your $profile and make a function for it... 
-```function winfetch{....}``` or you can just download it and link the path to your $profile 
+```function winfetch{....}``` or you can just download it and link the path of this .ps1 file to your $profile 
 
 ```
 function winfetch {
     & 'path-here'
 }
 ```
+To open your $profile file type  ```code $profile``` or ```notepad $profile``` according to your favorite text editor
+*Powershell 7 and nerdfonts are recommended*
 
 
-
-i know it needs work...and i'll get that.
+i know it needs work...and i'll work on it

@@ -23,6 +23,7 @@ function winfetch {
 }
 ```
 To open your $profile file type  ```code $profile``` or ```notepad $profile``` according to your favorite text editor
+
 *Powershell 7 and nerdfonts are recommended*
 
 

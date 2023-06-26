@@ -1,5 +1,5 @@
 # winfetch
-neofetch for windows(limited func. for now)
+neofetch for windows
 
 
 ### Description: 

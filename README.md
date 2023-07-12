@@ -16,7 +16,7 @@ Winfetch is a tool written in powershell that displays your system info in a vis
 
 ### Installation
 
-_Note: wherever the command says ~/Downloads you can go on and type your preffered location._
+_Note: wherever the command says ~/Documents you can go on and type your preffered location._
 
 1. Open Powershell and type/paste the following command
    ```powershell

@@ -14,15 +14,24 @@ Winfetch is a tool written in powershell that displays your system info in a vis
 
 <img width="517" alt="image" src="https://github.com/Priyanshu-1012/winfetch/assets/39450902/fc2ea60b-7a75-474f-9183-53e9c8684da5">
 
-Either paste the code to your $profile and make a function for it... 
-```function winfetch{....}``` or you can just download it and link the path of this .ps1 file to your $profile 
+### Installation
 
-```
-function winfetch {
-    & 'path-here'
-}
-```
-To open your $profile file type  ```code $profile``` or ```notepad $profile``` according to your favorite text editor
+_Note: wherever the command says ~/Downloads you can go on and type your preffered location._
+
+1. Open Powershell and type/paste the following command
+   ```powershell
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Priyanshu-1012/winfetch/master/winfetch.ps1" | Select-Object -ExpandProperty Content | Out-File -FilePath ~/Documents/winfetch.ps1 -Encoding UTF8
+   ```
+2. Then paste the following comand
+   ```powershell
+   "function winfetch {
+       `$scriptPath = Resolve-Path -Path '~/Documents/winfetch.ps1'
+       & `$scriptPath
+   }" | Add-Content $profile
+   ```
+   
+3. Run the command ```pwsh``` on the same terminal to relaunch powershell
+4. Now you can try and run ```winfetch``` command on terminal.
 
 *Powershell 7 and nerdfonts are recommended*
 

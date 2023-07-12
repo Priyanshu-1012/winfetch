@@ -22,7 +22,7 @@ _Note: wherever the command says ~/Downloads you can go on and type your preffer
    ```powershell
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Priyanshu-1012/winfetch/master/winfetch.ps1" | Select-Object -ExpandProperty Content | Out-File -FilePath ~/Documents/winfetch.ps1 -Encoding UTF8
    ```
-2. Then paste the following comand
+2. Next, paste the following command on terminal.
    ```powershell
    "function winfetch {
        `$scriptPath = Resolve-Path -Path '~/Documents/winfetch.ps1'

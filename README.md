@@ -1,6 +1,7 @@
 # winfetch
 neofetch for windows
 
+*Powershell 7 and nerdfonts are recommended*
 
 ### Description: 
 Winfetch is a tool written in powershell that displays your system info in a visually pleasing way, it doesn't have any purpose...and is just for aesthetics.
@@ -33,7 +34,6 @@ _Note: wherever the command says ~/Documents you can go on and type your preffer
 3. Run the command ```pwsh``` on the same terminal to relaunch powershell
 4. Now you can try and run ```winfetch``` command on terminal.
 
-*Powershell 7 and nerdfonts are recommended*
 
 
 i know it needs work...and i'll work on it
